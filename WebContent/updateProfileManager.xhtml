@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Stock Market</title>
+</h:head>
+<h:body>
+	<h:form rendered="#{not empty username}">
+    Already logged in . Please <h:commandButton value="Logout"
+			action="#{login.logout}" /> here.</h:form>
+	<h:form>
+		<h:commandButton value="Stock List" action="userhome.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Update Profile"
+			action="updateProfileManager.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="User List" action="userList.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Account Details"
+			action="managerAccountDetails.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Logout" action="#{login.logout}"></h:commandButton>
+		<!-- 	<h:outputtext id = "managerlist" action = "#{managerList.managerList()}"></h:outputtext> -->
+	</h:form>
+	<h:form rendered="#{not empty username}">
+    Already logged in . Please <h:commandButton value="Logout"
+			action="#{login.logout}" /> here.</h:form>
+	<h:form>
+First Name : <h:inputText value="#{login.firstname}" type="text"
+			required="true"></h:inputText>
+		<br></br>
+Last Name : <h:inputText value="#{login.lastname}" type="text"
+			required="true"></h:inputText>
+		<br></br>
+Address : <h:inputText value="#{login.address}" type="text"
+			required="true"></h:inputText>
+		<br></br>
+Phone Number : <h:inputText value="#{login.phonenumber}" type="text"
+			required="true"></h:inputText>
+		<br></br>
+Email ID : <h:inputText value="#{login.email}" type="text"
+			required="true"></h:inputText>
+		<br></br>
+Password : <h:inputText value="#{login.password}" type="text"
+			required="true"></h:inputText>
+		<br></br>
+		<h:commandButton value="Update Profile" action="#{login.Manager}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

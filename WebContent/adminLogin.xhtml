@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>Login/Sign-In</title>
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+
+	<link rel='stylesheet prefetch'
+		href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'></link>
+
+	<link rel="stylesheet" href="css/style.css"></link>
+
+</h:head>
+
+<h:body>
+	<h:form rendered="#{not empty username}">
+    Already logged in . Please <h:commandLink value="Logout"
+			action="#{login.logout}" /> here.</h:form>
+	<div class="logmod__tab lgm-2">
+		<div class="logmod__heading">
+			<span class="logmod__heading-subtitle">Enter your User ID and
+				password <strong>to sign in</strong>
+			</span>
+		</div>
+		<div class="logmod__form">
+			<h:form class="simform">
+				<div class="sminputs">
+					<div class="input full">
+						<label class="string optional" for="user-name">User Name</label>
+						<h:inputText value="#{admin.username}" id="uname" required="true"
+							requiredMessage="User Name not specified" placeholder="User Name" />
+						<h:message for="uname" Style=".error" />
+					</div>
+				</div>
+				<div class="sminputs">
+					<div class="input full">
+						<label class="string optional" for="user-pw">Password</label>
+						<h:inputSecret value="#{adin.password}" id="pwd" required="true"
+							requiredMessage="Password not specified" placeholder="Passwrod" />
+						<h:message for="pwd" Style=".error" />
+					</div>
+				</div>
+				<div class="simform__actions">
+					<h:commandButton value="login As User" action="#{login.loginUser}"></h:commandButton>
+					<td></td>
+					<h:commandButton value="login" action="#{admin.login}"></h:commandButton>
+				</div>
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

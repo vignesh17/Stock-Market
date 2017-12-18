@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandButton value="View User List" action="userListAdmin.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="View Manager List"
+			action="managerListAdmin.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Pending Request" action="pendingList.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Logout" action="#{login.logout()}"></h:commandButton>
+		<td></td>
+		<!-- 	<h:outputtext id = "managerlist" action = "#{managerList.managerList()}"></h:outputtext> -->
+	</h:form>
+
+	<h:form rendered="#{not empty username}">
+    Already logged in . Please <h:commandButton value="Logout"
+			action="#{login.logout}" /> here.</h:form>
+	<h:form id="form1">
+		<h:dataTable value="#{managerList1.messages}" var="o" paginator="true"
+			rows="3"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="3,5,10" widgetVar="50" style="width: 60px;">
+			<f:facet name="header">  
+                    Manager List  
+                </f:facet>
+			<h:column sortBy="#{o.firstname}">
+				<f:facet name="header">
+					<h:outputText value="First Name" />
+				</f:facet>
+				<h:outputText value="#{o.firstname}" />
+			</h:column>
+			<h:column sortBy="#{o.lastname}">
+				<f:facet name="header">
+					<h:outputText value="Last Name" />
+				</f:facet>
+				<h:outputText value="#{o.lastname}" />
+			</h:column>
+			<h:column sortBy="#{o.address}">
+				<f:facet name="header">
+					<h:outputText value="Address" />
+				</f:facet>
+				<h:outputText value="#{o.address}" />
+			</h:column>
+			<h:column sortBy="#{o.email}">
+				<f:facet name="header">
+					<h:outputText value="Email ID" />
+				</f:facet>
+				<h:outputText value="#{o.email}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

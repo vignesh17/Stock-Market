@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Stock Market</title>
+</h:head>
+<h:body>
+	<h:commandButton value="Watch List" action="watchList.xhtml"></h:commandButton>
+	<h:commandButton value="Update Profile" action="updateProfile.xhtml"></h:commandButton>
+	<h:commandButton value="Manager List" action="managerList.xhtml"></h:commandButton>
+	<h:commandButton value="Account Details" action="accountUser.xhtml"></h:commandButton>
+	<h:outputtext id = "managerlist" action = "#{managerList.managerList()}"></h:outputtext>
+</h:body>
+</html>

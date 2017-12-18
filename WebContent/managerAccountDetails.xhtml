@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
+<h:body>
+	<h:form rendered="#{not empty username}">
+    Already logged in . Please <h:commandButton value="Logout"
+			action="#{login.logout}" /> here.</h:form>
+	<h:form>
+		<h:commandButton value="Stock List" action="userhome.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Update Profile"
+			action="updateProfileManager.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="User List" action="userList.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Account Details"
+			action="managerAccountDetails.xhtml"></h:commandButton>
+		<td></td>
+		<td></td>
+		<h:commandButton value="Logout" action="#{login.logout}"></h:commandButton>
+		<!-- 	<h:outputtext id = "managerlist" action = "#{managerList.managerList()}"></h:outputtext> -->
+	</h:form>
+	<h:form rendered="#{not empty username}">
+    Already logged in . Please <h:commandLink value="Logout"
+			action="#{login.logout}" /> here.</h:form>
+	<h:form id="form1">
+		<h:dataTable value="#{managerAccountDetails1.messages}" var="o"
+			paginator="true" rows="3"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="3,5,10" widgetVar="50" style="width: 60px;">
+			<f:facet name="header">  
+                    Account Details  
+                </f:facet>
+			<h:column sortBy="#{o.uid}">
+				<f:facet name="header">
+					<h:outputText value="UID" />
+				</f:facet>
+				<h:outputText value="#{o.uid}" />
+			</h:column>
+			<h:column sortBy="#{o.firstname}">
+				<f:facet name="header">
+					<h:outputText value="First Name" />
+				</f:facet>
+				<h:outputText value="#{o.firstname}" />
+			</h:column>
+			<h:column sortBy="#{o.lastname}">
+				<f:facet name="header">
+					<h:outputText value="Last Name" />
+				</f:facet>
+				<h:outputText value="#{o.lastname}" />
+			</h:column>
+			<h:column sortBy="#{o.address}">
+				<f:facet name="header">
+					<h:outputText value="Address" />
+				</f:facet>
+				<h:outputText value="#{o.address}" />
+			</h:column>
+			<h:column sortBy="#{o.phonenumber}">
+				<f:facet name="header">
+					<h:outputText value="Phone Number" />
+				</f:facet>
+				<h:outputText value="#{o.phonenumber}" />
+			</h:column>
+			<h:column sortBy="#{o.email}">
+				<f:facet name="header">
+					<h:outputText value="Email ID" />
+				</f:facet>
+				<h:outputText value="#{o.email}" />
+			</h:column>
+			<h:column sortBy="#{o.username}">
+				<f:facet name="header">
+					<h:outputText value="User Name" />
+				</f:facet>
+				<h:outputText value="#{o.username}" />
+			</h:column>
+			<!--                 <h:column sortBy="#{o.password}"> -->
+			<!--                     <f:facet name="header">   -->
+			<!--                         <h:outputText value="Password" />   -->
+			<!--                     </f:facet> -->
+			<!--                     <h:outputText value="#{o.password}"/> -->
+			<!--                 </h:column> -->
+			<h:column sortBy="#{o.commission}">
+				<f:facet name="header">
+					<h:outputText value="commission" />
+				</f:facet>
+				<h:outputText value="#{o.commission}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
